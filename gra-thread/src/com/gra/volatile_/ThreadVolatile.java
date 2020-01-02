@@ -6,7 +6,7 @@ package com.gra.volatile_;
  * Volatile 关键字的作用是变量在多个线程之间可见。
  */
 class ThreadVolatileDemo extends Thread {
-	public  volatile boolean flag = true;
+	public   boolean flag = true;
 
 
 

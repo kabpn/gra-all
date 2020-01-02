@@ -9,7 +9,7 @@ public class VolatileNoAtomic extends Thread {
 	 * AtomicInteger jdk1.5并发包里的
 	 * 保证线程原子性，一致性，解决线程安全问题，结果一致
 	 * volatile只是当前可见，在多线程执行的情况下不阻塞，写的值也可能发生混乱，不能保证原子性，结果一致
-	 * sync同步有阻塞，数据可见，能保证数据原子性
+	 * sync同步有阻塞，能保证数据原子性
 	 */
 
 	private static AtomicInteger count = new AtomicInteger(0);
