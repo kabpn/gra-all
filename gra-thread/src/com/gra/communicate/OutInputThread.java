@@ -1,8 +1,8 @@
-package com.gra.msg;
+package com.gra.communicate;
 
 /**
  * 工程名:gra-all
- * 包名:com.gra.msg
+ * 包名:com.gra.communicate
  * 文件名:OutInputThread
  * description:
  *
@@ -50,7 +50,7 @@ class InputThread extends Thread {
                 res.flag = true;
 
                 count = (count + 1) % 2;
-                res.notify();
+//                res.notify();
             }
         }
     }
@@ -71,8 +71,8 @@ class OutThread extends Thread {
         while (true) {
 
             synchronized (res) {
-                System.out.println("消费者1");
-
+//
+                System.out.println("消费者");
                 if(!res.flag){
                     try {
                         res.wait();
@@ -80,10 +80,10 @@ class OutThread extends Thread {
                         e.printStackTrace();
                     }
                 }
-                System.out.println(res.flag);
+
                 //设为写
                 res.flag=false;
-                res.notify();
+//                res.notify();
                 System.out.println(res.userName + "--" + res.userSex);
             }
         }
