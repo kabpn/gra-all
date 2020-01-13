@@ -13,7 +13,7 @@ package com.gra.communicate;
 class Res {
     public String userSex;
     public String userName;
-    public boolean flag = false;
+    public  boolean flag = false;
 }
 
 class InputThread extends Thread {
@@ -30,7 +30,7 @@ class InputThread extends Thread {
         while (true) {
 
             synchronized (res) {
-                System.out.println("生产者");
+//                System.out.println("生产者");
                 if(res.flag){
                     try {
                         res.wait();
@@ -50,7 +50,7 @@ class InputThread extends Thread {
                 res.flag = true;
 
                 count = (count + 1) % 2;
-//                res.notify();
+                res.notify();
             }
         }
     }
@@ -71,8 +71,8 @@ class OutThread extends Thread {
         while (true) {
 
             synchronized (res) {
-//
-                System.out.println("消费者");
+
+//                System.out.println("消费者");
                 if(!res.flag){
                     try {
                         res.wait();
@@ -83,7 +83,7 @@ class OutThread extends Thread {
 
                 //设为写
                 res.flag=false;
-//                res.notify();
+                res.notify();
                 System.out.println(res.userName + "--" + res.userSex);
             }
         }
